@@ -11,12 +11,12 @@
     <title>Exo_C5</title>
 </head>
 <body>
-
+<img id="fond" src="ecran-fond.jpg">
 <div class="container-fluid">
 	<div class="row">
 
 		<form  method="post" class="col-md-5">
-			<h1><big>Colyseum</big></h1>
+			<h1 id="titre">Colyseum</h1>
 
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" id="envoyer" name="envoyer" value="Afficher tout les clients">
 
@@ -34,7 +34,7 @@
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" name="7" value="Afficher tout les clients et les infos">
 
 		</form>
-		<div class="col-md-7">
+		<div id="resultat" class="col-md-7">
 			<table class="table">
 
 
