@@ -85,7 +85,7 @@
 				}
 
 				if(!empty($_POST['4'])) {
-					$resultat = mysqli_query($connect, "SELECT * FROM clients WHERE card = 1");
+					$resultat = mysqli_query($connect, "SELECT lastName, firstName FROM clients INNER JOIN cards ON clients.cardNumber = cards.cardNumber WHERE cardTypesID = 1 ");
 					$affichage="";
 					while($donnees = mysqli_fetch_assoc($resultat)){
 					    $affichage .= '<tr><td>'.$donnees['lastName'].'</td><td>'.$donnees['firstName'].'</td></tr>';
@@ -119,20 +119,14 @@
 				}
 
 				if(!empty($_POST['7'])) {
-	                $resultat = mysqli_query($connect, "SELECT * FROM clients");
+	                $resultat = mysqli_query($connect, "SELECT lastName, firstName, birthDate, 'Oui' AS cards, clients.cardNumber FROM clients INNER JOIN cards ON clients.cardNumber = cards.cardNumber WHERE cardTypesId = 1 UNION SELECT lastName, firstName, birthDate, 'Non' AS cards, ' ' AS cardNumber FROM clients INNER JOIN cards ON clients.cardNumber = cards.cardNumber WHERE cardTypesId > 1 UNION SELECT lastName, firstName, birthDate, 'Non' AS cards, ' ' AS cardNumber FROM clients WHERE card = 0 ");
 	                $affichage="";
 	                while($donnees = mysqli_fetch_assoc($resultat)){
-	                    if ($donnees['card'] == 1) {
-	                        $cart="Oui";
-	                    }
-	                    else {
-	                        $cart="Non";
-	                    }
 	                    $affichage .= '<tr>
 	                        <td>'.$donnees['lastName'].'</td>
 	                        <td>'.$donnees['firstName'].'</td>
 	                        <td>'.$donnees['birthDate'].'</td>
-	                        <td>'.$cart.'</td>
+	                        <td>'.$donnees['cards'].'</td>
 	                        <td>'.$donnees['cardNumber'].'</td>
 	                    </tr>';
 	                }
