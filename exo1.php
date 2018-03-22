@@ -12,30 +12,37 @@
 </head>
 <body>
 <img id="fond" src="ecran-fond.jpg">
+<br>
 <div class="container-fluid">
 	<div class="row">
 
 		<form  method="post" class="col-md-5">
 			<h1 id="titre">Colyseum</h1>
 
+			<br>
+
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" id="envoyer" name="envoyer" value="Afficher tout les clients">
 
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" id="2" name="2" value="Afficher tout les types de spectacles">
 
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" name="3" value="Afficher les 20 premiers clients">
+
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" name="4" value="Afficher les clients fidèles">
+
 			<div class="mb-3 container-fluid">
 				<div class="row">
 					<input type="submit" class="col-10 btn btn-dark " name="5" value="Afficher tout les clients dont le nom commence par...">
 					<input type="text" class="col-2 text-center" name="test"  placeholder="Q">
 				</div>
 			</div>
+
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" name="6" value="Afficher tout les spectacles et les infos">
+			
 			<input type="submit" class="mb-3 btn btn-dark container-fluid" name="7" value="Afficher tout les clients et les infos">
 
 		</form>
-		<div id="resultat" class="col-md-7">
-			<table class="table">
+		<div class="col-md-7">
+			<table id="resultat" class="table">
 
 
 			<?php
@@ -129,7 +136,7 @@
 	                        <td>'.$donnees['cardNumber'].'</td>
 	                    </tr>';
 	                }
-	                echo '<tr><th>Nom</th><th>Prenom</th><th>Qate de naissance</th><th>Carte de fidèlité</th><th>Numéro de carte</th></tr>';
+	                echo '<tr><th>Nom</th><th>Prenom</th><th>Qate de naissance</th><th>Carte de fidélité</th><th>Numéro de carte</th></tr>';
 	                echo $affichage;
 	                mysqli_free_result($resultat);
                 }
